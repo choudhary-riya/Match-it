@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavana & Mahender - Save the Date 💚</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Audio -->
+    <audio id="gameAudio" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Mute Button -->
+    <button class="mute-button" id="muteButton">🔊 Mute</button>
+
+    <!-- PAGE 1: Welcome (template1) -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <h1>💚 Find Our Story 💚</h1>
+            <p class="welcome-text">
+                Match the cards to reveal our special announcement.<br>
+                Let the memories guide you to the date! ✨
+            </p>
+            <button class="start-button" id="startButton">Start the Game</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Game (template2) -->
+    <div class="game-container" id="gameContainer">
+        <div class="game-header">
+            <h2>Match the Pairs 💚</h2>
+        </div>
+        <div class="game-stats">
+            <div>Moves: <span id="moves">0</span></div>
+            <div>Time: <span id="timer">00:00</span></div>
+        </div>
+        <div class="game-grid" id="gameGrid"></div>
+    </div>
+
+    <!-- PAGE 3: Invitation (template3) -->
+    <div class="invitation-overlay" id="invitationOverlay">
+        <div class="invite-content">
+            <div class="confetti-container" id="confettiContainer"></div>
+            <div class="invite-ganesha">🕉️</div>
+            <h1>SAVE THE DATE</h1>
+            <div class="couple-names">
+                <span>Bhavana</span>
+                <span class="amp">&</span>
+                <span>Mahender</span>
+            </div>
+            <p class="invite-date">1<sup>st</sup> July 2026</p>
+            <p class="invite-venue">Om Convention Hall<br>Narsingi, Hyderabad</p>
+            <p class="invite-message">We can't wait to celebrate with you! 💚</p>
+            <a href="https://wa.me/?text=Save%20the%20Date!%20Bhavana%20%26%20Mahender%20-%201st%20July%202026" 
+               class="whatsapp-button">📤 Share on WhatsApp</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
