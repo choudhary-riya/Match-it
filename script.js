@@ -1,16 +1,19 @@
 /* ============================================
    Memory Card Game - Game Logic
-   5 pairs = 10 cards positioned over template2.png
+   8 images total, 5 randomly chosen per game (10 cards / 5 pairs)
+   Each game shuffles which 5 of the 8 images appear — replayable!
    ============================================ */
 
-// 5 unique images for the memory game (each appears twice for pairs)
-// Replace these with your actual image filenames
-const cardImages = [
+// All 8 unique images you have - game randomly picks 5 each round
+const allCardImages = [
     'image1.jpg',
     'image2.jpg',
     'image3.jpg',
     'image4.jpg',
-    'image5.jpg'
+    'image5.jpg',
+    'image6.jpg',
+    'image7.jpg',
+    'image8.jpg'
 ];
 
 // Game state
@@ -99,8 +102,11 @@ function initializeGame() {
     elements.timer.textContent = '00:00';
     clearInterval(gameState.timerInterval);
 
-    // Create pairs (each image appears twice) and shuffle
-    const cardPairs = [...cardImages, ...cardImages];
+    // Randomly select 5 of the 8 images for this game (different each round!)
+    const selectedImages = shuffle(allCardImages).slice(0, 5);
+    
+    // Create pairs (each selected image appears twice) and shuffle positions
+    const cardPairs = [...selectedImages, ...selectedImages];
     const shuffled = shuffle(cardPairs);
 
     // Create card elements with position data
