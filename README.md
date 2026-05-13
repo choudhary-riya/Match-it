@@ -1,193 +1,174 @@
-# 💚 Save the Date Memory Game - Bhavana & Mahender
+# 💛 Save the Date Memory Game — Bhavana & Mahender
 
-Interactive memory card matching game for your wedding Save the Date!
-
-## 📁 Your File Structure
-
-Your game needs these files in your GitHub repository:
-
-```
-save-the-date-game/
-├── index.html          ← Main game file
-├── style.css           ← Wedding theme styling
-├── script.js           ← Game logic
-├── audio1.mp3          ← Background music (YOUR FILE)
-├── template1.jpg       ← Welcome screen background (YOUR FILE)
-├── template2.jpg       ← Game screen background (YOUR FILE)
-├── template3.jpg       ← Invitation reveal background (YOUR FILE)
-├── image1.jpg          ← Memory card 1 (YOUR FILE)
-├── image2.jpg          ← Memory card 2 (YOUR FILE)
-├── image3.jpg          ← Memory card 3 (YOUR FILE)
-├── image4.jpg          ← Memory card 4 (YOUR FILE)
-├── image5.jpg          ← Memory card 5 (YOUR FILE)
-├── image6.jpg          ← Memory card 6 (YOUR FILE)
-├── image7.jpg          ← Memory card 7 (YOUR FILE)
-└── image8.jpg          ← Memory card 8 (YOUR FILE)
-```
-
-## 🚀 Deploy to GitHub Pages
-
-### Step 1: Create Repository
-
-1. Go to [GitHub.com](https://github.com) and sign in
-2. Click **"+"** → **"New repository"**
-3. Name: `wedding-game` (or any name)
-4. Make it **Public**
-5. Click **"Create repository"**
-
-### Step 2: Upload ALL Files
-
-1. In your repository, click **"Add file"** → **"Upload files"**
-2. Drag and drop ALL these files:
-   - `index.html`, `style.css`, `script.js`
-   - `audio1.mp3` (your audio file)
-   - `template1.jpg`, `template2.jpg`, `template3.jpg` (your background images)
-   - `image1.jpg` through `image8.jpg` (your memory card images)
-3. Scroll down and click **"Commit changes"**
-
-### Step 3: Enable GitHub Pages
-
-1. Go to **Settings** (top menu)
-2. Click **"Pages"** (left sidebar)
-3. Under **"Source"**, select **"main"** branch
-4. Click **"Save"**
-5. Wait 2 minutes, refresh → Your link appears!
-
-### Step 4: Share with Guests! 🎉
-
-Your game URL: `https://YOUR-USERNAME.github.io/wedding-game/`
-
-Send to guests via WhatsApp, email, or social media!
+An interactive 3-page memory card game using your beautiful blue & cream templates!
 
 ---
 
-## 🎮 How the Game Works
+## 📁 Files in This Folder
 
-### Page 1: Welcome Screen
-- Guests see the welcome message
-- Click "Start the Game" to begin
-- Music (audio1.mp3) starts playing
+✅ **Already Included** (ready to upload):
+- `index.html` — Main game page
+- `style.css` — Styling matching your templates
+- `script.js` — Game logic (5 pairs / 10 cards)
+- `template1.png` — Welcome screen (with your names)
+- `template2.png` — Game board (with 10 yellow card slots)
+- `template3.png` — Save the Date reveal background
 
-### Page 2: Memory Game
-- 16 cards (8 pairs) with your photos
-- Click to flip cards and find matching pairs
-- Moves and time are tracked
-- Mute button to toggle music
+🎯 **You Need To Add**:
+- `audio1.mp3` — Your background music
+- `image1.jpg` to `image5.jpg` — **Only 5 images needed** (template has 5 pairs / 10 slots)
 
-### Page 3: Save the Date Reveal
-- Shows when all pairs are matched
+---
+
+## 🎮 How It Works
+
+### **Page 1: Welcome (template1)**
+- Shows your "Bhavana & Mahender" cover
+- Hint message + animated "Start the Game" button
+- Click to begin → music starts playing
+
+### **Page 2: Game (template2)**
+- 10 cards positioned **exactly** on the yellow placeholders
+- 5 pairs to match (using image1 to image5)
+- Live moves & timer counter at top
+- Mute/unmute button in corner
+- Cards flip with smooth animation
+- Match found → glow effect
+- Last match → firecracker celebration 🎆
+
+### **Page 3: Save the Date (template3)**
+- Auto-shows when all pairs matched
 - Confetti animation 🎊
-- Wedding details displayed:
+- Beautiful invite card with:
+  - 🕉️ श्री गणेशाय नमः
   - **Bhavana & Mahender**
   - **1st July 2026**
   - **Om Convention Hall, Narsingi, Hyderabad**
-- WhatsApp share button
+- WhatsApp share button to forward to others
 
 ---
 
-## 🎨 Wedding Theme Colors
+## 🚀 Deploy to GitHub Pages (Easy Steps)
 
-The game uses your wedding colors:
-- **Olive greens** (#3d4a18, #5d6f23) - Main colors
-- **Cream** (#f5e9d3) - Background
-- **Gold** (#d4a017) - Accents
+### **Step 1: Create Repository**
+1. Go to [github.com](https://github.com) → Sign in
+2. Click **"+"** (top right) → **"New repository"**
+3. Name it: `save-the-date` (or anything)
+4. Make it **Public**
+5. Click **Create repository**
+
+### **Step 2: Upload All Files**
+1. Click **"Add file"** → **"Upload files"**
+2. Drag & drop:
+   - `index.html`, `style.css`, `script.js`
+   - `template1.png`, `template2.png`, `template3.png`
+   - `audio1.mp3` (your audio)
+   - `image1.jpg` through `image5.jpg` (your 5 photos)
+3. Scroll down → Click **"Commit changes"**
+
+### **Step 3: Enable GitHub Pages**
+1. Go to **Settings** (top right of repo)
+2. Click **Pages** (left sidebar)
+3. Under **Source**, select **main** branch → click **Save**
+4. Wait 1-2 minutes
+5. Refresh — your live link appears! 🎉
+
+### **Step 4: Share!**
+Your game URL: `https://YOUR-USERNAME.github.io/save-the-date/`
+
+Send via WhatsApp:
+> *"💛 We have a surprise for you! Play this little game to reveal our wedding date! ✨"*
 
 ---
 
-## 📝 Customize Wedding Details
+## 🖼️ Image Specifications
 
-To change names, date, or venue, edit `index.html`:
-
-```html
-<div class="couple-names">
-    <span>Bhavana</span>
-    <span class="amp">&</span>
-    <span>Mahender</span>
-</div>
-<p class="invite-date">1<sup>st</sup> July 2026</p>
-<p class="invite-venue">Om Convention Hall<br>Narsingi, Hyderabad</p>
-```
-
----
-
-## 🖼️ Image Requirements
-
-### Background Images (template1/2/3)
-- **Format**: JPG or PNG
-- **Size**: 1920x1080px (Full HD) recommended
-- **File size**: < 1MB each for fast loading
-
-### Memory Card Images (image1-8)
-- **Format**: JPG or PNG
-- **Size**: 500x500px (square) recommended
-- **File size**: < 200KB each
+### For the 5 memory cards (image1.jpg - image5.jpg):
+- **Aspect ratio**: Portrait (3:4) works best since cards are taller than wide
+- **Size**: 400×600 px recommended
+- **File size**: Keep under 200 KB each for fast loading
 - **Suggestions**:
-  - Bride photo
-  - Groom photo
-  - Ring
-  - Broom (traditional wedding item)
-  - Your logo/monogram
-  - Flowers
-  - Venue photo
-  - Engagement photo
+  - `image1.jpg` — Bride photo
+  - `image2.jpg` — Groom photo
+  - `image3.jpg` — Ring 💍
+  - `image4.jpg` — Broom 🧹 (traditional)
+  - `image5.jpg` — Your logo/monogram or favorite couple photo
+
+💡 **Tip**: Use [TinyPNG.com](https://tinypng.com) to compress images for free.
 
 ---
 
 ## 🎵 Audio File
 
-- **Format**: MP3
-- **Name**: audio1.mp3
-- **Duration**: 2-3 minutes (it loops automatically)
-- **File size**: < 5MB recommended
-- **Suggestions**: Romantic instrumental, your favorite song
+- **Filename**: `audio1.mp3`
+- **Recommended duration**: 2-3 minutes (loops automatically)
+- **Recommended size**: Under 3 MB
+- **Style suggestion**: Soft instrumental, romantic, or traditional Indian music
 
 ---
 
-## 📱 Mobile Friendly
+## 📱 Mobile Tips
 
-The game automatically works on:
-- ✅ Phones (perfect for WhatsApp sharing!)
-- ✅ Tablets
-- ✅ Desktops
+- The template is designed for **landscape orientation** (16:9)
+- A small hint appears on mobile suggesting landscape view
+- Works perfectly when phone is rotated sideways
+- Cards align precisely with the yellow placeholders
+
+---
+
+## ✏️ Customize Text
+
+To change any text on the invite page, edit `index.html`:
+
+```html
+<h1 class="invite-title">Save the Date</h1>
+<div class="invite-names">
+    <span class="name">Bhavana</span>
+    <span class="amp">&</span>
+    <span class="name">Mahender</span>
+</div>
+<p class="invite-date">1<sup>st</sup> July 2026</p>
+<p class="invite-venue">Om Convention Hall<br/>Narsingi, Hyderabad</p>
+```
+
+---
+
+## 🎨 Colors (Already Matching Your Templates)
+
+- **Light blue**: #c5dde8 (background)
+- **Cream yellow**: #f0d989 (cartouche)
+- **Olive green**: #5d6f23 (text)
+- **Gold**: #c89855 (accents)
 
 ---
 
 ## 🔧 Troubleshooting
 
-### Music doesn't play?
-- Some browsers block autoplay
-- Users can click the mute button to enable sound
-- This is normal browser behavior for audio
+**Cards not aligned with yellow boxes?**
+- Make sure you're viewing in landscape (template is 16:9)
+- The cards are positioned with percentages so they should align automatically
 
-### Images not showing?
-- Make sure all image files are uploaded to GitHub
-- Check that filenames match exactly (case-sensitive!)
-- Example: `Image1.jpg` is different from `image1.jpg`
+**Music not playing?**
+- Browsers block autoplay until user clicks
+- Music will start after clicking "Start the Game"
+- User can also click 🔊 to unmute
 
-### Game not loading?
-- Wait 2-3 minutes after enabling GitHub Pages
-- Hard refresh: **Ctrl + Shift + R** (Windows) or **Cmd + Shift + R** (Mac)
+**Want a different image for pairs?**
+- Edit `script.js` line 7-12 and change the `cardImages` array
 
 ---
 
-## 💡 Tips
+## 🎉 Final Checklist Before Sharing
 
-1. **Test first**: Before sharing, test the link on your phone
-2. **Optimize images**: Use tools like [TinyPNG](https://tinypng.com) to compress images
-3. **WhatsApp friendly**: The game works great when shared as a link
-4. **Save the Date timing**: Send 6-8 months before the wedding
-
----
-
-## 📤 WhatsApp Share Message
-
-After deployment, share with guests:
-
-> *"💚 Play this memory game to discover our wedding date! Can you find all the pairs? 🎊*  
-> *[YOUR-GAME-LINK]*"
+- [ ] All 3 templates uploaded (template1/2/3.png)
+- [ ] audio1.mp3 uploaded
+- [ ] All 5 images uploaded (image1 to image5.jpg)
+- [ ] HTML/CSS/JS files uploaded
+- [ ] GitHub Pages enabled
+- [ ] Tested on your phone (landscape)
+- [ ] Tested clicking through all 3 pages
+- [ ] Shared with a test friend before sending to all guests
 
 ---
 
-**Congratulations on your wedding, Bhavana & Mahender! 🎉💚**
-
-Need help? The files are ready to upload directly to GitHub!
+**Congratulations again, Bhavana & Mahender! 💛 Wishing you a beautiful wedding!** 🌿✨
