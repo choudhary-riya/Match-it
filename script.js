@@ -1,11 +1,10 @@
 /* ============================================
-   Memory Card Game - Game Logic
-   8 images total, 5 randomly chosen per game (10 cards / 5 pairs)
-   Each game shuffles which 5 of the 8 images appear — replayable!
+   Memory Card Game - 4×4 grid, 8 image pairs
+   Mobile-friendly with all 8 images
    ============================================ */
 
-// All 8 unique images you have - game randomly picks 5 each round
-const allCardImages = [
+// All 8 unique images (each appears twice = 16 cards total)
+const cardImages = [
     'image1.jpg',
     'image2.jpg',
     'image3.jpg',
@@ -26,7 +25,7 @@ const gameState = {
     secondCard: null,
     canFlip: true,
     gameStarted: false,
-    totalPairs: 5
+    totalPairs: 8
 };
 
 // DOM Elements
@@ -45,9 +44,7 @@ const elements = {
     confettiContainer: $('confettiContainer')
 };
 
-// ============ HELPER FUNCTIONS ============
-
-// Shuffle array (Fisher-Yates)
+// Fisher-Yates shuffle
 function shuffle(array) {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -57,7 +54,7 @@ function shuffle(array) {
     return arr;
 }
 
-// Show a specific screen, hide others
+// Show specific screen
 function showScreen(screenId) {
     [elements.welcomeScreen, elements.gameScreen, elements.inviteScreen].forEach(s => {
         s.classList.remove('active');
@@ -65,30 +62,27 @@ function showScreen(screenId) {
     setTimeout(() => $(screenId).classList.add('active'), 50);
 }
 
-// ============ GAME SETUP ============
-
-function createCard(imageSrc, position) {
+// Create a card element
+function createCard(imageSrc, index) {
     const card = document.createElement('div');
     card.className = 'card';
-    card.dataset.pos = position;
     card.dataset.symbol = imageSrc;
     card.setAttribute('role', 'button');
     card.setAttribute('aria-pressed', 'false');
-    card.setAttribute('aria-label', `Card ${position + 1}`);
+    card.setAttribute('aria-label', `Card ${index + 1}`);
     card.setAttribute('tabindex', '0');
 
     card.innerHTML = `
         <div class="card-face card-back"></div>
         <div class="card-face card-front">
-            <img src="${imageSrc}" alt="Card ${position + 1}" loading="lazy" />
+            <img src="${imageSrc}" alt="Card ${index + 1}" loading="lazy" />
         </div>
     `;
-
     return card;
 }
 
+// Initialize game
 function initializeGame() {
-    // Reset state
     elements.gameBoard.innerHTML = '';
     gameState.moves = 0;
     gameState.matches = 0;
@@ -102,22 +96,16 @@ function initializeGame() {
     elements.timer.textContent = '00:00';
     clearInterval(gameState.timerInterval);
 
-    // Randomly select 5 of the 8 images for this game (different each round!)
-    const selectedImages = shuffle(allCardImages).slice(0, 5);
-    
-    // Create pairs (each selected image appears twice) and shuffle positions
-    const cardPairs = [...selectedImages, ...selectedImages];
+    // 8 images × 2 = 16 cards in 4×4 grid
+    const cardPairs = [...cardImages, ...cardImages];
     const shuffled = shuffle(cardPairs);
 
-    // Create card elements with position data
     shuffled.forEach((image, index) => {
-        const card = createCard(image, index);
-        elements.gameBoard.appendChild(card);
+        elements.gameBoard.appendChild(createCard(image, index));
     });
 }
 
-// ============ TIMER ============
-
+// Timer
 function startTimer() {
     if (gameState.gameStarted) return;
     gameState.gameStarted = true;
@@ -131,10 +119,8 @@ function startTimer() {
     }, 1000);
 }
 
-// ============ CARD FLIPPING LOGIC ============
-
+// Flip card
 function flipCard(card) {
-    // Prevent invalid flips
     if (!gameState.canFlip) return;
     if (card.classList.contains('matched')) return;
     if (card.getAttribute('aria-pressed') === 'true') return;
@@ -143,16 +129,13 @@ function flipCard(card) {
     card.setAttribute('aria-pressed', 'true');
 
     if (!gameState.firstCard) {
-        // First card of the pair
         gameState.firstCard = card;
     } else if (card !== gameState.firstCard) {
-        // Second card of the pair
         gameState.secondCard = card;
         gameState.canFlip = false;
         gameState.moves++;
         elements.moves.textContent = gameState.moves;
 
-        // Check for match
         if (gameState.firstCard.dataset.symbol === gameState.secondCard.dataset.symbol) {
             handleMatch();
         } else {
@@ -166,22 +149,16 @@ function handleMatch() {
     gameState.firstCard.classList.add('matched');
     gameState.secondCard.classList.add('matched');
     
-    const lastSecondCard = gameState.secondCard;
+    const lastCard = gameState.secondCard;
     
     gameState.firstCard = null;
     gameState.secondCard = null;
     gameState.canFlip = true;
     
-    // Check win condition
     if (gameState.matches === gameState.totalPairs) {
-        // Add firecracker effect on last matched card
-        lastSecondCard.classList.add('firecracker');
+        lastCard.classList.add('firecracker');
         clearInterval(gameState.timerInterval);
-        
-        // Show invite after celebration animation
-        setTimeout(() => {
-            showInviteScreen();
-        }, 1000);
+        setTimeout(() => showInviteScreen(), 1100);
     }
 }
 
@@ -192,18 +169,18 @@ function handleMismatch() {
         gameState.firstCard = null;
         gameState.secondCard = null;
         gameState.canFlip = true;
-    }, 1000);
+    }, 900);
 }
 
-// ============ INVITE REVEAL ============
-
+// Show invite reveal
 function showInviteScreen() {
     showScreen('inviteScreen');
     createConfetti();
 }
 
+// Confetti
 function createConfetti() {
-    const colors = ['#c89855', '#5d6f23', '#f0d989', '#c5dde8', '#a17e1a'];
+    const colors = ['#c89855', '#5d6f23', '#f0d989', '#c5dde8', '#a17e1a', '#25D366'];
     elements.confettiContainer.innerHTML = '';
     
     for (let i = 0; i < 80; i++) {
@@ -218,28 +195,22 @@ function createConfetti() {
     }
 }
 
-// ============ EVENT LISTENERS ============
-
-// Start button
+// Event listeners
 elements.startButton.addEventListener('click', () => {
     showScreen('gameScreen');
-    // Try to play audio (user gesture allows it)
     elements.gameAudio.play().catch(e => console.log('Audio:', e.message));
 });
 
-// Mute button
 elements.muteButton.addEventListener('click', () => {
     elements.gameAudio.muted = !elements.gameAudio.muted;
     elements.muteIcon.textContent = elements.gameAudio.muted ? '🔇' : '🔊';
 });
 
-// Card clicks (event delegation)
 elements.gameBoard.addEventListener('click', (e) => {
     const card = e.target.closest('.card');
     if (card) flipCard(card);
 });
 
-// Keyboard support
 elements.gameBoard.addEventListener('keydown', (e) => {
     const card = e.target.closest('.card');
     if (card && (e.key === 'Enter' || e.key === ' ')) {
@@ -248,6 +219,6 @@ elements.gameBoard.addEventListener('keydown', (e) => {
     }
 });
 
-// ============ INITIALIZE ============
+// Initialize
 showScreen('welcomeScreen');
 initializeGame();
